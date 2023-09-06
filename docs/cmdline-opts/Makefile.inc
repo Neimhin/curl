@@ -264,6 +264,7 @@ DPAGES = \
   tlsv1.2.d \
   tlsv1.3.d \
   tlsv1.d \
+  ech.d \
   tr-encoding.d \
   trace-ascii.d \
   trace-config.d \
