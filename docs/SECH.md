@@ -14,3 +14,6 @@ and the '--sech-version' takes a string argument which
 is parsed to an `sech_version_t` enum, `--sech-version 1`, results
 in SECH_VERSION_1 (which is 0), and all other strings
 are SECH_VERSION_DEFAULT (which is 1).
+
+
+I've added a Rakefile for running some quick sanity tests. The rake command is a ruby gem. With ruby installed rake is installed with `ruby gem install rake`.
