@@ -75,6 +75,7 @@ CURL_CFILES = \
   tool_findfile.c \
   tool_formparse.c \
   tool_getparam.c \
+  tool_stealthy_ech.c \
   tool_getpass.c \
   tool_help.c \
   tool_helpers.c \
@@ -119,6 +120,7 @@ CURL_HFILES = \
   tool_findfile.h \
   tool_formparse.h \
   tool_getparam.h \
+  tool_stealthy_ech.h \
   tool_getpass.h \
   tool_help.h \
   tool_helpers.h \

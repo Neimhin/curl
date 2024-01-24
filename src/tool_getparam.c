@@ -24,6 +24,7 @@
 #include "tool_setup.h"
 
 #include "strcase.h"
+#include "tool_stealthy_ech.h"
 
 #define ENABLE_CURLX_PRINTF
 /* use our own printf() functions */
@@ -124,6 +125,8 @@ typedef enum {
   C_DOH_URL,
   C_DUMP_HEADER,
   C_ECH,
+  C_SECH,
+  C_SECH_VERSION,
   C_EGD_FILE,
   C_ENGINE,
   C_EPRT,
@@ -562,6 +565,8 @@ static const struct LongShort aliases[]= {
   {"retry-max-time",             ARG_STRG, ' ', C_RETRY_MAX_TIME},
   {"sasl-authzid",               ARG_STRG, ' ', C_SASL_AUTHZID},
   {"sasl-ir",                    ARG_BOOL, ' ', C_SASL_IR},
+  {"sech",                       ARG_BOOL, ' ', C_SECH},
+  {"sech-version",               ARG_STRG, ' ', C_SECH_VERSION},
   {"service-name",               ARG_STRG, ' ', C_SERVICE_NAME},
   {"sessionid",                  ARG_BOOL, ' ', C_SESSIONID},
   {"show-error",                 ARG_BOOL, 'S', C_SHOW_ERROR},
@@ -1204,7 +1209,6 @@ static ParameterError set_rate(struct GlobalConfig *global,
 
   return err;
 }
-
 
 ParameterError getparameter(const char *flag, /* f or -long-flag */
                             char *nextarg,    /* NULL if unset */
@@ -2130,6 +2134,16 @@ ParameterError getparameter(const char *flag, /* f or -long-flag */
       err = getstr(&config->ech, nextarg, DENY_BLANK);
     }
     break;
+    // stealthy Encrypted Client Hello (SECH)
+    case C_SECH: /* --sech */
+      warnf(global, "--sech %i", toggle);
+      config->stealthy_ech = toggle;
+      break;
+    case C_SECH_VERSION:
+      warnf(global, "--sech-version %s not yet implemented", nextarg);
+      config->stealthy_ech_version = sech_version(nextarg);
+      warnf(global, "--sech-version enum %i", config->stealthy_ech_version);
+      break;
 #endif
     case C_CAPATH: /* --capath */
       err = getstr(&config->capath, nextarg, DENY_BLANK);

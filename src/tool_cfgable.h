@@ -26,6 +26,7 @@
 #include "tool_setup.h"
 #include "tool_sdecls.h"
 #include "tool_urlglob.h"
+#include "tool_stealthy_ech.h"
 #include "var.h"
 
 struct GlobalConfig;
@@ -302,6 +303,8 @@ struct OperationConfig {
   char *ech;                      /* Config set by --ech keywords */
   char *ech_config;               /* Config set by "--ech esl:" option */
   char *ech_public;               /* Config set by "--ech pn:" option */
+  bool stealthy_ech;
+  sech_version_t stealthy_ech_version;
 #endif
 
 };
