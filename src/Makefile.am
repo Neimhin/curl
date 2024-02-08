@@ -46,7 +46,6 @@ AM_CPPFLAGS = -I$(top_srcdir)/include        \
 bin_PROGRAMS = curl
 
 SUBDIRS = ../docs
-
 if USE_CPPFLAG_CURL_STATICLIB
 AM_CPPFLAGS += -DCURL_STATICLIB
 endif
@@ -163,3 +162,16 @@ if HAVE_WINDRES
 .rc.o:
 	$(RC) -I$(top_srcdir)/include -DCURL_EMBED_MANIFEST $(RCFLAGS) -i $< -o $@
 endif
+
+# # Define test programs
+# check_PROGRAMS = pass fail stealthy_ech_test
+# # Test sources (including the main test program file)
+# pass_SOURCES = tests/pass.c
+# fail_SOURCES = tests/fail.c
+# stealthy_ech_test_SOURCES = tests/stealthy_ech.c tool_stealthy_ech.c
+# # List of tests to be run with 'make check'
+# TESTS = $(check_PROGRAMS)
+# # Optional setup/teardown for tests
+# # TESTS_ENVIRONMENT = ...
+# # TESTS_SETUP = ...
+

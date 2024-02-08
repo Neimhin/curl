@@ -143,3 +143,16 @@ if CURLDEBUG
 # for debug builds, we scan the sources on all regular make invokes
 all-local: checksrc
 endif
+
+# SECH 
+check_PROGRAMS = pass fail stealthy_ech_test test_codes
+# Test sources (including the main test program file)
+test_codes_SOURCES = test_codes.c
+pass_SOURCES = pass.c
+fail_SOURCES = fail.c
+stealthy_ech_test_SOURCES = stealthy_ech.c ../src/tool_stealthy_ech.c
+# List of tests to be run with 'make check'
+TESTS = $(check_PROGRAMS)
+# Optional setup/teardown for tests
+# TESTS_ENVIRONMENT = ...
+# TESTS_SETUP = ...

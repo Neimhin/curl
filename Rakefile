@@ -1,7 +1,13 @@
 desc "quick ech test"
 task :quick_test do
   puts "Running quick tests..."
-  system("LD_LIBRARY_PATH=\"$HOME/code/openssl\" ./src/curl -vvv --doh-url https://one.one.one.one/dns-query --ech hard https://draft-13.esni.defo.ie:9413 | grep SSL_ECH_STATUS --color")
+  system("LD_LIBRARY_PATH=\"$HOME/code/openssl\" bash -x ./src/curl -vvv --doh-url https://one.one.one.one/dns-query --ech hard https://draft-13.esni.defo.ie:9413 | grep SSL_ECH_STATUS --color")
+end
+
+desc "quick ech test"
+task :google do
+  puts "Running quick tests..."
+  system("LD_LIBRARY_PATH=\"$HOME/code/openssl\" ./src/curl -vvv https://www.google.com | tee google.com.html")
 end
 
 desc "--sech option --sech-version 1"

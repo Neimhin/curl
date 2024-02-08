@@ -1,0 +1,2 @@
+#!/bin/bash
+LDFLAGS=-L$HOME/code/openssl ./configure CFLAGS="-g -gdwarf-2 -g3" --with-ssl="$HOME/code/openssl" --enable-ech --enable-httpsrr
