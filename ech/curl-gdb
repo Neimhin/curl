@@ -1,0 +1,8 @@
+#!/bin/bash
+cd src
+LD_LIBRARY_PATH=$HOME/code/curl/lib/.libs:$HOME/code/openssl
+export LD_LIBRARY_PATH
+if [[ "$@" == *"--tui"* ]]; then
+  flags="$flags --tui";
+fi
+gdb $flags --args /home/neimhin/code/curl/src/.libs/curl -vvv --doh-url https://one.one.one.one/dns-query --ech hard https://draft-13.esni.defo.ie:9413

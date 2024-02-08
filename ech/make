@@ -1,0 +1,5 @@
+ossl="$HOME/code/openssl"
+curl_dir=`dirname $0`
+cd $ossl; make -j8
+cd $curl_dir
+LD_LIBRARY_PATH=$ossl make -j8
