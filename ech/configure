@@ -1,0 +1,1 @@
+LDFLAGS=-L$HOME/code/openssl ./configure CFLAGS="-g -gdwarf-2 -g3" --with-ssl=/home/neimhin/code/openssl --enable-ech --enable-httpsrr
